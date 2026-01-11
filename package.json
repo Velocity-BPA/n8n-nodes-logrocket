@@ -1,0 +1,84 @@
+{
+  "name": "n8n-nodes-logrocket",
+  "version": "1.0.0",
+  "description": "A comprehensive n8n community node for LogRocket providing 12 resources and 60+ operations for session replay, error tracking, user analytics, and workflow automation.",
+  "license": "BUSL-1.1",
+  "author": {
+    "name": "Velocity BPA",
+    "email": "licensing@velobpa.com",
+    "url": "https://velobpa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-logrocket.git"
+  },
+  "homepage": "https://github.com/Velocity-BPA/n8n-nodes-logrocket#readme",
+  "bugs": {
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-logrocket/issues"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-community-node-package",
+    "logrocket",
+    "session-replay",
+    "error-tracking",
+    "analytics",
+    "frontend-monitoring",
+    "user-experience",
+    "product-analytics",
+    "performance-monitoring"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "COMMERCIAL_LICENSE.md",
+    "LICENSING_FAQ.md",
+    "README.md"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/LogRocketApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/LogRocket/LogRocket.node.js",
+      "dist/nodes/LogRocket/LogRocketTrigger.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "tsc && npm run copy:icons",
+    "copy:icons": "cp -r nodes/LogRocket/*.svg dist/nodes/LogRocket/ 2>/dev/null || true",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "format:check": "prettier --check \"**/*.ts\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.1",
+    "jest": "^29.7.0",
+    "n8n-workflow": "^1.30.0",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": ">=1.0.0"
+  }
+}
